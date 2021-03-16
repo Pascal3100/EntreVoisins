@@ -1,83 +1,63 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+
+<androidx.coordinatorlayout.widget.CoordinatorLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/coordinatorLayoutNeighbourDetails"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ui.neighbour_details.NeighbourDetailsActivity"
-    android:background="#e6e9ea">
+    android:fitsSystemWindows="true">
 
-    <androidx.coordinatorlayout.widget.CoordinatorLayout
-        android:id="@+id/coordinatorLayoutNeighbourDetails"
+    <com.google.android.material.appbar.AppBarLayout
         android:layout_width="match_parent"
         android:layout_height="250dp"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
         android:fitsSystemWindows="true">
 
-        <com.google.android.material.appbar.AppBarLayout
+        <com.google.android.material.appbar.CollapsingToolbarLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:fitsSystemWindows="true">
 
-            <com.google.android.material.appbar.CollapsingToolbarLayout
+            <ImageView
+                android:id="@+id/appBarBackgroundImageNeighbourDetails"
                 android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:src="@tools:sample/backgrounds/scenic"
+                android:scaleType="centerCrop"
+                android:fitsSystemWindows="true"/>
+
+            <com.google.android.material.appbar.MaterialToolbar
+                android:id="@+id/topAppBarNeighbourDetails"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                app:navigationIcon="@drawable/ic_arrow_back_24dp"
+                android:background="@android:color/transparent">
+            </com.google.android.material.appbar.MaterialToolbar>
+
+            <TextView
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:fitsSystemWindows="true">
+                android:layout_marginTop="186dp"
+                android:layout_marginStart="16dp"
+                android:text="Caroline"
+                android:textSize="32dp"
+                android:textColor="#ffffff"/>
 
-                <ImageView
-                    android:id="@+id/appBarBackgroundImageNeighbourDetails"
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:src="@tools:sample/backgrounds/scenic"
-                    android:scaleType="centerCrop"
-                    android:fitsSystemWindows="true"/>
+        </com.google.android.material.appbar.CollapsingToolbarLayout>
 
-                <com.google.android.material.appbar.MaterialToolbar
-                    android:id="@+id/topAppBarNeighbourDetails"
-                    android:layout_width="match_parent"
-                    android:layout_height="250dp"
-                    app:navigationIcon="@drawable/ic_arrow_back_24dp"
-                    android:background="@android:color/transparent">
-                </com.google.android.material.appbar.MaterialToolbar>
-
-            </com.google.android.material.appbar.CollapsingToolbarLayout>
-
-        </com.google.android.material.appbar.AppBarLayout>
-
-    </androidx.coordinatorlayout.widget.CoordinatorLayout>
+    </com.google.android.material.appbar.AppBarLayout>
 
     <com.google.android.material.floatingactionbutton.FloatingActionButton
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        app:layout_constraintTop_toTopOf="@id/coordinatorLayoutNeighbourDetails"
-        app:layout_constraintEnd_toEndOf="@id/coordinatorLayoutNeighbourDetails"
+        app:layout_anchor="@id/topAppBarNeighbourDetails"
         app:layout_anchorGravity="bottom|end"
         android:layout_marginEnd="32dp"
-        android:layout_marginTop="220dp"
         android:elevation="8dp"
-
         android:backgroundTint="#ffffff"
         android:src="@drawable/ic_star_add_favorite_32dp"
-        app:tint="#f7cd2f"
-        android:scaleType="center">
+        app:tint="#f7cd2f">
     </com.google.android.material.floatingactionbutton.FloatingActionButton>
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="32dp"
-        android:layout_marginStart="16dp"
-        android:text="Caroline"
-        android:textSize="32dp"
-        android:textColor="#ffffff"
-        app:layout_constraintBottom_toBottomOf="@id/coordinatorLayoutNeighbourDetails"
-        app:layout_constraintStart_toStartOf="@id/coordinatorLayoutNeighbourDetails">
-    </TextView>
 
-    <com.google.android.material.card.MaterialCardView
-        android:layout_width=""
-        android:layout_height=""
-
-</androidx.constraintlayout.widget.ConstraintLayout>
+</androidx.coordinatorlayout.widget.CoordinatorLayout>
