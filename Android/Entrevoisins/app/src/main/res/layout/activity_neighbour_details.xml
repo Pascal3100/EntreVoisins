@@ -4,7 +4,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ui.neighbour_details.NeighbourDetailsActivity">
+    tools:context=".ui.neighbour_details.NeighbourDetailsActivity"
+    android:background="#e6e9ea">
 
     <androidx.coordinatorlayout.widget.CoordinatorLayout
         android:id="@+id/coordinatorLayoutNeighbourDetails"
@@ -56,6 +57,7 @@
         android:layout_marginEnd="32dp"
         android:layout_marginTop="220dp"
         android:elevation="8dp"
+
         android:backgroundTint="#ffffff"
         android:src="@drawable/ic_star_add_favorite_32dp"
         app:tint="#f7cd2f"
@@ -66,12 +68,16 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginBottom="32dp"
-        android:layout_marginStart="32dp"
+        android:layout_marginStart="16dp"
         android:text="Caroline"
         android:textSize="32dp"
         android:textColor="#ffffff"
         app:layout_constraintBottom_toBottomOf="@id/coordinatorLayoutNeighbourDetails"
         app:layout_constraintStart_toStartOf="@id/coordinatorLayoutNeighbourDetails">
     </TextView>
+
+    <com.google.android.material.card.MaterialCardView
+        android:layout_width=""
+        android:layout_height=""
 
 </androidx.constraintlayout.widget.ConstraintLayout>
