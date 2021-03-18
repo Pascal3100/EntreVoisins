@@ -20,7 +20,7 @@
             android:layout_height="match_parent"
             android:fitsSystemWindows="true">
 
-            <ImageView
+            <androidx.appcompat.widget.AppCompatImageView
                 android:id="@+id/appbar_background_image_neighbour_details_activity"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
@@ -212,10 +212,9 @@
 
                 </androidx.constraintlayout.widget.ConstraintLayout>
 
-
             </androidx.constraintlayout.widget.ConstraintLayout>
-        </com.google.android.material.card.MaterialCardView>
 
+        </com.google.android.material.card.MaterialCardView>
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 
@@ -232,6 +231,5 @@
         android:src="@drawable/ic_star_add_favorite_32dp"
         app:tint="#f7cd2f">
     </com.google.android.material.floatingactionbutton.FloatingActionButton>
-
 
 </androidx.coordinatorlayout.widget.CoordinatorLayout>
