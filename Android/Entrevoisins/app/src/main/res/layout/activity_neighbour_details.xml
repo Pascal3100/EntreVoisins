@@ -7,12 +7,12 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:fitsSystemWindows="true"
-    android:background="#eceff0">
+    android:background="@color/colorActivityBackground">
 
     <com.google.android.material.appbar.AppBarLayout
         android:id="@+id/appbar_neighbour_details_activity"
         android:layout_width="match_parent"
-        android:layout_height="250dp"
+        android:layout_height="@dimen/appbar_nd_activity_height"
         android:fitsSystemWindows="true">
 
         <com.google.android.material.appbar.CollapsingToolbarLayout
@@ -48,8 +48,9 @@
                     android:layout_marginBottom="32dp"
                     android:layout_marginStart="16dp"
                     android:text="Caroline"
-                    android:textSize="40sp"
-                    android:textColor="#ffffff"/>
+                    android:textAppearance="?attr/textAppearanceHeadline4"
+                    android:textSize="@dimen/big_title_specific_font_size"
+                    android:textColor="@color/colorBigTitle"/>
             </androidx.constraintlayout.widget.ConstraintLayout>
 
         </com.google.android.material.appbar.CollapsingToolbarLayout>
@@ -88,8 +89,8 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:text="Caroline"
-                        android:textColor="#424242"
-                        android:textSize="28dp"
+                        android:textColor="@color/colorCardTitle"
+                        android:textAppearance="?attr/textAppearanceHeadline5"
                         app:layout_constraintStart_toStartOf="parent"
                         app:layout_constraintTop_toTopOf="parent" />
 
@@ -112,11 +113,12 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:drawableLeft="@drawable/ic_baseline_location_on_24dp"
+                        app:drawableTint="@color/colorAccent"
                         android:drawablePadding="16dp"
                         android:paddingVertical="16dp"
                         android:text="Saint Pierre du mont à 5km"
-                        android:textColor="#8e8e8e"
-                        android:textSize="18dp"
+                        android:textColor="@color/colorCardText"
+                        android:textAppearance="?attr/textAppearanceBody1"
                         app:layout_constraintBottom_toTopOf="@+id/card_coordinates_phone_neighbour_details_activity"
                         app:layout_constraintStart_toStartOf="parent"
                         app:layout_constraintTop_toTopOf="parent" />
@@ -126,11 +128,12 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:drawableLeft="@drawable/ic_baseline_local_phone_24"
+                        app:drawableTint="@color/colorAccent"
                         android:drawablePadding="16dp"
                         android:paddingVertical="16dp"
                         android:text="+33 6 86 57 90 14"
-                        android:textColor="#8e8e8e"
-                        android:textSize="18dp"
+                        android:textColor="@color/colorCardText"
+                        android:textAppearance="?attr/textAppearanceBody1"
                         app:layout_constraintBottom_toTopOf="@+id/card_coordinates_social_neighbour_details_activity"
                         app:layout_constraintStart_toStartOf="parent"
                         app:layout_constraintTop_toBottomOf="@id/card_coordinates_adress_neighbour_details_activity" />
@@ -140,11 +143,12 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:drawableLeft="@drawable/ic_baseline_language_24"
+                        app:drawableTint="@color/colorAccent"
                         android:drawablePadding="16dp"
                         android:paddingVertical="16dp"
                         android:text="www.facebook.fr/caroline"
-                        android:textColor="#8e8e8e"
-                        android:textSize="18dp"
+                        android:textColor="@color/colorCardText"
+                        android:textAppearance="?attr/textAppearanceBody1"
                         app:layout_constraintBottom_toBottomOf="parent"
                         app:layout_constraintStart_toStartOf="parent"
                         app:layout_constraintTop_toBottomOf="@id/card_coordinates_phone_neighbour_details_activity" />
@@ -180,8 +184,8 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:text="A propos de moi"
-                        android:textColor="#424242"
-                        android:textSize="28dp"
+                        android:textColor="@color/colorCardTitle"
+                        android:textAppearance="?attr/textAppearanceHeadline5"
                         app:layout_constraintStart_toStartOf="parent"
                         app:layout_constraintTop_toTopOf="parent" />
 
@@ -205,10 +209,10 @@
                         android:layout_height="wrap_content"
                         android:paddingVertical="16dp"
                         android:text="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce a magna pretium, tempor risus sit amet, convallis odio. In vitae dapibus lacus, vitae luctus mi. Praesent ut ligula eget nibh bibendum consequat quis sit amet velit."
-                        android:textColor="#8e8e8e"
-                        android:textSize="16sp"
+                        android:textColor="@color/colorCardText"
+                        android:textAppearance="?attr/textAppearanceBody1"
                         app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintTop_toTopOf="parent" />
+                        app:layout_constraintTop_toTopOf="parent"/>
 
                 </androidx.constraintlayout.widget.ConstraintLayout>
 
@@ -224,12 +228,12 @@
         android:layout_height="wrap_content"
         app:layout_anchor="@id/material_toolbar_neighbour_details_activity"
         app:layout_anchorGravity="bottom|end"
-        android:layout_marginEnd="16dp"
+        android:layout_marginEnd="@dimen/fab_margin"
         android:elevation="8dp"
-        android:backgroundTint="#ffffff"
+        android:backgroundTint="@color/colorFavoriteFabBackground"
         app:borderWidth="0dp"
         android:src="@drawable/ic_star_add_favorite_32dp"
-        app:tint="#f7cd2f">
+        app:tint="@color/colorFavoriteFabStar">
     </com.google.android.material.floatingactionbutton.FloatingActionButton>
 
 </androidx.coordinatorlayout.widget.CoordinatorLayout>

@@ -3,4 +3,12 @@
     <color name="colorPrimary">#03A9F4</color>
     <color name="colorPrimaryDark">#0287c3</color>
     <color name="colorAccent">#FF80AB</color>
+    <!--Added colors for neighbour details activity-->
+    <color name="colorBigTitle">@color/colorWhite</color>
+    <color name="colorFavoriteFabBackground">@color/colorWhite</color>
+    <color name="colorFavoriteFabStar">#FDD835</color>
+    <color name="colorCardTitle">#424242</color>
+    <color name="colorCardText">#757575</color>
+    <color name="colorActivityBackground">#ECEFF0</color>
+    <color name="colorWhite">#FFFFFF</color>
 </resources>
