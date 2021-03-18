@@ -6,9 +6,11 @@
     android:id="@+id/coordinatorLayoutNeighbourDetails"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:fitsSystemWindows="true">
+    android:fitsSystemWindows="true"
+    android:background="#eceff0">
 
     <com.google.android.material.appbar.AppBarLayout
+        android:id="@+id/appbar_neighbour_details_activity"
         android:layout_width="match_parent"
         android:layout_height="250dp"
         android:fitsSystemWindows="true">
@@ -19,7 +21,7 @@
             android:fitsSystemWindows="true">
 
             <ImageView
-                android:id="@+id/appBarBackgroundImageNeighbourDetails"
+                android:id="@+id/appbar_background_image_neighbour_details_activity"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:src="@tools:sample/backgrounds/scenic"
@@ -27,34 +29,206 @@
                 android:fitsSystemWindows="true"/>
 
             <com.google.android.material.appbar.MaterialToolbar
-                android:id="@+id/topAppBarNeighbourDetails"
+                android:id="@+id/material_toolbar_neighbour_details_activity"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 app:navigationIcon="@drawable/ic_arrow_back_24dp"
                 android:background="@android:color/transparent">
             </com.google.android.material.appbar.MaterialToolbar>
 
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="186dp"
-                android:layout_marginStart="16dp"
-                android:text="Caroline"
-                android:textSize="32dp"
-                android:textColor="#ffffff"/>
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+                <com.google.android.material.textview.MaterialTextView
+                    android:id="@+id/big_title_neighbour_details_activity"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    android:layout_marginBottom="32dp"
+                    android:layout_marginStart="16dp"
+                    android:text="Caroline"
+                    android:textSize="40sp"
+                    android:textColor="#ffffff"/>
+            </androidx.constraintlayout.widget.ConstraintLayout>
 
         </com.google.android.material.appbar.CollapsingToolbarLayout>
 
     </com.google.android.material.appbar.AppBarLayout>
 
+    <androidx.constraintlayout.widget.ConstraintLayout
+        app:layout_anchor="@id/appbar_neighbour_details_activity"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom"
+        app:layout_anchorGravity="bottom">
+
+        <com.google.android.material.card.MaterialCardView
+            android:id="@+id/card_coordinates_neighbour_details_activity"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="16dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:id="@+id/title_cl_coordinates_neighbour_details_activity"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:paddingTop="16dp"
+                    android:paddingBottom="8dp"
+                    android:paddingLeft="16dp">
+
+                    <com.google.android.material.textview.MaterialTextView
+                        android:id="@+id/card_coordinates_title_neighbour_details_activity"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="Caroline"
+                        android:textColor="#424242"
+                        android:textSize="28dp"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+                <View
+                    android:id="@+id/card_coordinates_divider_neighbour_details_activity"
+                    style="@style/Divider.Horizontal"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/title_cl_coordinates_neighbour_details_activity" />
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:paddingHorizontal="16dp"
+                    app:layout_constraintTop_toBottomOf="@id/card_coordinates_divider_neighbour_details_activity">
+
+                    <com.google.android.material.textview.MaterialTextView
+                        android:id="@+id/card_coordinates_adress_neighbour_details_activity"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:drawableLeft="@drawable/ic_baseline_location_on_24dp"
+                        android:drawablePadding="16dp"
+                        android:paddingVertical="16dp"
+                        android:text="Saint Pierre du mont à 5km"
+                        android:textColor="#8e8e8e"
+                        android:textSize="18dp"
+                        app:layout_constraintBottom_toTopOf="@+id/card_coordinates_phone_neighbour_details_activity"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+                    <com.google.android.material.textview.MaterialTextView
+                        android:id="@+id/card_coordinates_phone_neighbour_details_activity"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:drawableLeft="@drawable/ic_baseline_local_phone_24"
+                        android:drawablePadding="16dp"
+                        android:paddingVertical="16dp"
+                        android:text="+33 6 86 57 90 14"
+                        android:textColor="#8e8e8e"
+                        android:textSize="18dp"
+                        app:layout_constraintBottom_toTopOf="@+id/card_coordinates_social_neighbour_details_activity"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@id/card_coordinates_adress_neighbour_details_activity" />
+
+                    <com.google.android.material.textview.MaterialTextView
+                        android:id="@+id/card_coordinates_social_neighbour_details_activity"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:drawableLeft="@drawable/ic_baseline_language_24"
+                        android:drawablePadding="16dp"
+                        android:paddingVertical="16dp"
+                        android:text="www.facebook.fr/caroline"
+                        android:textColor="#8e8e8e"
+                        android:textSize="18dp"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@id/card_coordinates_phone_neighbour_details_activity" />
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+        </com.google.android.material.card.MaterialCardView>
+
+        <com.google.android.material.card.MaterialCardView
+            android:id="@+id/card_about_neighbour_details_activity"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="16dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/card_coordinates_neighbour_details_activity">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:id="@+id/title_cl_about_neighbour_details_activity"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:paddingTop="16dp"
+                    android:paddingBottom="8dp"
+                    android:paddingLeft="16dp">
+
+                    <com.google.android.material.textview.MaterialTextView
+                        android:id="@+id/card_about_title_neighbour_details_activity"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="A propos de moi"
+                        android:textColor="#424242"
+                        android:textSize="28dp"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+                <View
+                    android:id="@+id/card_about_divider_neighbour_details_activity"
+                    style="@style/Divider.Horizontal"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/title_cl_about_neighbour_details_activity" />
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:paddingHorizontal="16dp"
+                    app:layout_constraintTop_toBottomOf="@id/card_about_divider_neighbour_details_activity">
+
+                    <com.google.android.material.textview.MaterialTextView
+                        android:id="@+id/card_about_description_neighbour_details_activity"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:paddingVertical="16dp"
+                        android:text="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce a magna pretium, tempor risus sit amet, convallis odio. In vitae dapibus lacus, vitae luctus mi. Praesent ut ligula eget nibh bibendum consequat quis sit amet velit."
+                        android:textColor="#8e8e8e"
+                        android:textSize="16sp"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+        </com.google.android.material.card.MaterialCardView>
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
     <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/add_favorite_fab_neighbour_details_activity"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        app:layout_anchor="@id/topAppBarNeighbourDetails"
+        app:layout_anchor="@id/material_toolbar_neighbour_details_activity"
         app:layout_anchorGravity="bottom|end"
-        android:layout_marginEnd="32dp"
+        android:layout_marginEnd="16dp"
         android:elevation="8dp"
         android:backgroundTint="#ffffff"
+        app:borderWidth="0dp"
         android:src="@drawable/ic_star_add_favorite_32dp"
         app:tint="#f7cd2f">
     </com.google.android.material.floatingactionbutton.FloatingActionButton>
