@@ -1,9 +1,11 @@
-package com.openclassrooms.entrevoisins.ui.neighbour_list;
+package com.openclassrooms.entrevoisins.vue.neighbour_list.adapters;
 
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentPagerAdapter;
+
+import com.openclassrooms.entrevoisins.vue.neighbour_list.fragments.NeighbourFragment;
 
 public class ListNeighbourPagerAdapter extends FragmentPagerAdapter {
 

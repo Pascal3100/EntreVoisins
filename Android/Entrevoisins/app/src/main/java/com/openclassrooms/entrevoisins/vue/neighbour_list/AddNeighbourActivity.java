@@ -1,4 +1,4 @@
-package com.openclassrooms.entrevoisins.ui.neighbour_list;
+package com.openclassrooms.entrevoisins.vue.neighbour_list;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -16,9 +16,9 @@ import com.bumptech.glide.request.RequestOptions;
 import com.google.android.material.button.MaterialButton;
 import com.google.android.material.textfield.TextInputLayout;
 import com.openclassrooms.entrevoisins.R;
-import com.openclassrooms.entrevoisins.di.DI;
+import com.openclassrooms.entrevoisins.controler.di.DI;
 import com.openclassrooms.entrevoisins.model.Neighbour;
-import com.openclassrooms.entrevoisins.service.NeighbourApiService;
+import com.openclassrooms.entrevoisins.controler.service.NeighbourApiService;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;

@@ -1,4 +1,4 @@
-package com.openclassrooms.entrevoisins.ui.neighbour_list;
+package com.openclassrooms.entrevoisins.vue.neighbour_list;
 
 import android.os.Bundle;
 
@@ -8,6 +8,7 @@ import androidx.viewpager.widget.ViewPager;
 
 import com.google.android.material.tabs.TabLayout;
 import com.openclassrooms.entrevoisins.R;
+import com.openclassrooms.entrevoisins.vue.neighbour_list.adapters.ListNeighbourPagerAdapter;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;

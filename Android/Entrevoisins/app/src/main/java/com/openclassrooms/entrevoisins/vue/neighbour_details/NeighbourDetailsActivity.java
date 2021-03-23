@@ -1,4 +1,4 @@
-package com.openclassrooms.entrevoisins.ui.neighbour_details;
+package com.openclassrooms.entrevoisins.vue.neighbour_details;
 
 import androidx.appcompat.app.AppCompatActivity;
 

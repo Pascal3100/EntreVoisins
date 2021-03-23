@@ -1,4 +1,4 @@
-package com.openclassrooms.entrevoisins.events;
+package com.openclassrooms.entrevoisins.controler.events;
 
 import com.openclassrooms.entrevoisins.model.Neighbour;
 

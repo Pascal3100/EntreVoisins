@@ -1,4 +1,4 @@
-package com.openclassrooms.entrevoisins.ui.neighbour_list;
+package com.openclassrooms.entrevoisins.vue.neighbour_list.view_holders;
 
 import android.view.View;
 import android.widget.ImageButton;

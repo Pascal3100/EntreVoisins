@@ -9,7 +9,7 @@ import androidx.test.rule.ActivityTestRule;
 import androidx.test.runner.AndroidJUnit4;
 
 import com.openclassrooms.entrevoisins.R;
-import com.openclassrooms.entrevoisins.ui.neighbour_list.ListNeighbourActivity;
+import com.openclassrooms.entrevoisins.vue.neighbour_list.ListNeighbourActivity;
 import com.openclassrooms.entrevoisins.utils.DeleteViewAction;
 
 import org.junit.Before;

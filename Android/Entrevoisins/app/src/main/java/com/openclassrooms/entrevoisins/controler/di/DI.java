@@ -1,7 +1,7 @@
-package com.openclassrooms.entrevoisins.di;
+package com.openclassrooms.entrevoisins.controler.di;
 
-import com.openclassrooms.entrevoisins.service.DummyNeighbourApiService;
-import com.openclassrooms.entrevoisins.service.NeighbourApiService;
+import com.openclassrooms.entrevoisins.controler.service.DummyNeighbourApiService;
+import com.openclassrooms.entrevoisins.controler.service.NeighbourApiService;
 
 /**
  * Dependency injector to get instance of services
