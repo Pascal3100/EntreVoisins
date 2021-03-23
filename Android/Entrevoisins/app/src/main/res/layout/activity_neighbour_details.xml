@@ -24,7 +24,6 @@
                 android:id="@+id/appbar_background_image_neighbour_details_activity"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:src="@tools:sample/backgrounds/scenic"
                 android:scaleType="centerCrop"
                 android:fitsSystemWindows="true"/>
 
