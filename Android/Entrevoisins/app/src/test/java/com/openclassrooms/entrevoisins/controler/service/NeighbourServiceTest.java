@@ -1,6 +1,7 @@
 package com.openclassrooms.entrevoisins.controler.service;
 
 import com.openclassrooms.entrevoisins.controler.di.DI;
+import com.openclassrooms.entrevoisins.controler.interfaces.NeighbourApiService;
 import com.openclassrooms.entrevoisins.model.Neighbour;
 
 import org.hamcrest.collection.IsIterableContainingInAnyOrder;

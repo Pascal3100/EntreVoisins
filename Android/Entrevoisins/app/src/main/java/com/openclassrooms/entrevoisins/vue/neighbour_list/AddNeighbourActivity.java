@@ -18,7 +18,7 @@ import com.google.android.material.textfield.TextInputLayout;
 import com.openclassrooms.entrevoisins.R;
 import com.openclassrooms.entrevoisins.controler.di.DI;
 import com.openclassrooms.entrevoisins.model.Neighbour;
-import com.openclassrooms.entrevoisins.controler.service.NeighbourApiService;
+import com.openclassrooms.entrevoisins.controler.interfaces.NeighbourApiService;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;

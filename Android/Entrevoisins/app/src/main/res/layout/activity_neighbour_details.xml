@@ -6,26 +6,22 @@
     android:id="@+id/coordinatorLayoutNeighbourDetails"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:fitsSystemWindows="true"
     android:background="@color/colorActivityBackground">
 
     <com.google.android.material.appbar.AppBarLayout
         android:id="@+id/appbar_neighbour_details_activity"
         android:layout_width="match_parent"
-        android:layout_height="@dimen/appbar_nd_activity_height"
-        android:fitsSystemWindows="true">
+        android:layout_height="@dimen/appbar_nd_activity_height">
 
         <com.google.android.material.appbar.CollapsingToolbarLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:fitsSystemWindows="true">
+            android:layout_height="match_parent">
 
             <androidx.appcompat.widget.AppCompatImageView
                 android:id="@+id/appbar_background_image_neighbour_details_activity"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:scaleType="centerCrop"
-                android:fitsSystemWindows="true"/>
+                android:scaleType="centerCrop"/>
 
             <com.google.android.material.appbar.MaterialToolbar
                 android:id="@+id/material_toolbar_neighbour_details_activity"
@@ -182,7 +178,7 @@
                         android:id="@+id/card_about_title_neighbour_details_activity"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:text="A propos de moi"
+                        android:text="@string/aboutSectionTitle"
                         android:textColor="@color/colorCardTitle"
                         android:textAppearance="?attr/textAppearanceHeadline5"
                         app:layout_constraintStart_toStartOf="parent"

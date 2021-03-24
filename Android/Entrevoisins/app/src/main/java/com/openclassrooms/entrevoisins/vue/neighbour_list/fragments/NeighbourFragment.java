@@ -6,6 +6,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.DividerItemDecoration;
 import androidx.recyclerview.widget.LinearLayoutManager;
@@ -14,8 +15,9 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.openclassrooms.entrevoisins.R;
 import com.openclassrooms.entrevoisins.controler.di.DI;
 import com.openclassrooms.entrevoisins.controler.events.DeleteNeighbourEvent;
+import com.openclassrooms.entrevoisins.controler.interfaces.OnNeighbourListener;
 import com.openclassrooms.entrevoisins.model.Neighbour;
-import com.openclassrooms.entrevoisins.controler.service.NeighbourApiService;
+import com.openclassrooms.entrevoisins.controler.interfaces.NeighbourApiService;
 import com.openclassrooms.entrevoisins.vue.neighbour_list.adapters.MyNeighbourRecyclerViewAdapter;
 
 import org.greenrobot.eventbus.EventBus;
@@ -30,6 +32,9 @@ public class NeighbourFragment extends Fragment {
     private List<Neighbour> mNeighbours;
     private RecyclerView mRecyclerView;
 
+    // we add here a variable for the listener
+    private OnNeighbourListener onNeighbourListener;
+
 
     /**
      * Create and return a new instance
@@ -40,6 +45,17 @@ public class NeighbourFragment extends Fragment {
         return fragment;
     }
 
+    // We override here the onAttach method (cf Fragment LifeCycle) to define the listener in the fragment
+    @Override
+    public void onAttach(Context context) {
+        super.onAttach(context);
+        if (context instanceof OnNeighbourListener) {
+            onNeighbourListener = (OnNeighbourListener) context;
+        } else {
+            throw new ClassCastException(context.toString()
+                    + " must implement OnNeighbourListener");
+        }
+    }
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -62,7 +78,7 @@ public class NeighbourFragment extends Fragment {
      */
     private void initList() {
         mNeighbours = mApiService.getNeighbours();
-        mRecyclerView.setAdapter(new MyNeighbourRecyclerViewAdapter(mNeighbours));
+        mRecyclerView.setAdapter(new MyNeighbourRecyclerViewAdapter(mNeighbours, onNeighbourListener));
     }
 
     @Override

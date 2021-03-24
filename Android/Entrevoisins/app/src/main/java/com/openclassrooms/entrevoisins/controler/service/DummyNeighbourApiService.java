@@ -1,5 +1,6 @@
 package com.openclassrooms.entrevoisins.controler.service;
 
+import com.openclassrooms.entrevoisins.controler.interfaces.NeighbourApiService;
 import com.openclassrooms.entrevoisins.model.Neighbour;
 
 import java.util.List;
@@ -7,7 +8,7 @@ import java.util.List;
 /**
  * Dummy mock for the Api
  */
-public class DummyNeighbourApiService implements  NeighbourApiService {
+public class DummyNeighbourApiService implements NeighbourApiService {
 
     private List<Neighbour> neighbours = DummyNeighbourGenerator.generateNeighbours();
 

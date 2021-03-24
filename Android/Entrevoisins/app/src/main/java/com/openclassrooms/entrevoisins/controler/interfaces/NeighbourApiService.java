@@ -1,4 +1,4 @@
-package com.openclassrooms.entrevoisins.controler.service;
+package com.openclassrooms.entrevoisins.controler.interfaces;
 
 import com.openclassrooms.entrevoisins.model.Neighbour;
 
