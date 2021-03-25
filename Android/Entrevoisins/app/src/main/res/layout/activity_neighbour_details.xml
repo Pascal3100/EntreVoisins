@@ -227,7 +227,7 @@
         android:elevation="8dp"
         android:backgroundTint="@color/colorFavoriteFabBackground"
         app:borderWidth="0dp"
-        android:src="@drawable/ic_star_add_favorite_32dp"
+        android:src="@drawable/ic_star_add_favorite_no_32dp"
         app:tint="@color/colorFavoriteFabStar">
     </com.google.android.material.floatingactionbutton.FloatingActionButton>
 

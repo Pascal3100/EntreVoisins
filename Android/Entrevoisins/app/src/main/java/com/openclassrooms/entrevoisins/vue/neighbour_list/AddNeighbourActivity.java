@@ -82,13 +82,18 @@ public class AddNeighbourActivity extends AppCompatActivity {
 
     @OnClick(R.id.create)
     void addNeighbour() {
+        // Retrieve the boolean info of the view
+        Intent intent = getIntent();
+        Boolean isFavoriteView = intent.getBooleanExtra("IS_FAVORITE", false);
+
         Neighbour neighbour = new Neighbour(
                 System.currentTimeMillis(),
                 nameInput.getEditText().getText().toString(),
                 mNeighbourImage,
                 addressInput.getEditText().getText().toString(),
                 phoneInput.getEditText().getText().toString(),
-                aboutMeInput.getEditText().getText().toString()
+                aboutMeInput.getEditText().getText().toString(),
+                isFavoriteView
         );
         mApiService.createNeighbour(neighbour);
         finish();
@@ -106,8 +111,10 @@ public class AddNeighbourActivity extends AppCompatActivity {
      * Used to navigate to this activity
      * @param activity
      */
+/*
     public static void navigate(FragmentActivity activity) {
         Intent intent = new Intent(activity, AddNeighbourActivity.class);
         ActivityCompat.startActivity(activity, intent, null);
     }
+*/
 }

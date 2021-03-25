@@ -30,6 +30,20 @@ public class Neighbour implements Parcelable {
     /** About me */
     private String aboutMe;
 
+    // variable indicating if the neighbour is in my favorites
+    private Boolean isFavorite;
+
+
+    // Getter and setter for Favorite boolean property
+    // ----------------------------------------------------------------
+    public Boolean getFavorite() {
+        return isFavorite;
+    }
+    public void setFavorite(Boolean favorite) {
+        isFavorite = favorite;
+    }
+    // ----------------------------------------------------------------
+
     /**
      * Constructor
      * @param id
@@ -37,13 +51,14 @@ public class Neighbour implements Parcelable {
      * @param avatarUrl
      */
     public Neighbour(long id, String name, String avatarUrl, String address,
-                     String phoneNumber, String aboutMe) {
+                     String phoneNumber, String aboutMe, Boolean isFavorite) {
         this.id = id;
         this.name = name;
         this.avatarUrl = avatarUrl;
         this.address = address;
         this.phoneNumber = phoneNumber;
         this.aboutMe = aboutMe;
+        this.isFavorite = isFavorite;
     }
 
     // Parcel implementation methods
@@ -148,5 +163,9 @@ public class Neighbour implements Parcelable {
     @Override
     public int hashCode() {
         return Objects.hash(id);
+    }
+
+    public void switchFavorite() {
+        isFavorite = !isFavorite;
     }
 }

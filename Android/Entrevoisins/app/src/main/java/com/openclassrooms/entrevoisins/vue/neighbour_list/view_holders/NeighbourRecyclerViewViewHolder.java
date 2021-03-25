@@ -8,7 +8,7 @@ import android.widget.TextView;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.openclassrooms.entrevoisins.R;
-import com.openclassrooms.entrevoisins.controler.interfaces.OnNeighbourListener;
+import com.openclassrooms.entrevoisins.controler.interfaces.OnNeighbourListenerInterface;
 import com.openclassrooms.entrevoisins.model.Neighbour;
 
 import butterknife.BindView;
@@ -29,10 +29,10 @@ public class NeighbourRecyclerViewViewHolder extends RecyclerView.ViewHolder imp
     Neighbour neighbourObject;
 
     // we add here a variable for the listener
-    OnNeighbourListener onNeighbourListener;
+    OnNeighbourListenerInterface onNeighbourListener;
 
     // Listener is given to the constructor
-    public NeighbourRecyclerViewViewHolder(View view, OnNeighbourListener onNeighbourListener) {
+    public NeighbourRecyclerViewViewHolder(View view, OnNeighbourListenerInterface onNeighbourListener) {
         super(view);
         ButterKnife.bind(this, view);
 

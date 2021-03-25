@@ -10,7 +10,7 @@ import com.bumptech.glide.Glide;
 import com.bumptech.glide.request.RequestOptions;
 import com.openclassrooms.entrevoisins.R;
 import com.openclassrooms.entrevoisins.controler.events.DeleteNeighbourEvent;
-import com.openclassrooms.entrevoisins.controler.interfaces.OnNeighbourListener;
+import com.openclassrooms.entrevoisins.controler.interfaces.OnNeighbourListenerInterface;
 import com.openclassrooms.entrevoisins.model.Neighbour;
 import com.openclassrooms.entrevoisins.vue.neighbour_list.view_holders.NeighbourRecyclerViewViewHolder;
 
@@ -23,10 +23,10 @@ public class MyNeighbourRecyclerViewAdapter extends RecyclerView.Adapter<Neighbo
     private final List<Neighbour> mNeighbours;
 
     // we add here a variable for the listener
-    private OnNeighbourListener onNeighbourListener;
+    private OnNeighbourListenerInterface onNeighbourListener;
 
     // Listener is given to the constructor
-    public MyNeighbourRecyclerViewAdapter(List<Neighbour> items, OnNeighbourListener onNeighbourListener) {
+    public MyNeighbourRecyclerViewAdapter(List<Neighbour> items, OnNeighbourListenerInterface onNeighbourListener) {
         mNeighbours = items;
         this.onNeighbourListener = onNeighbourListener;
     }

@@ -21,6 +21,10 @@ import com.openclassrooms.entrevoisins.vue.neighbour_list.ListNeighbourActivity;
 public class NeighbourDetailsActivity extends AppCompatActivity {
 
     private static final String TAG = "NeighbourDetails";
+/*
+    private Neighbour neighbour;
+    private FloatingActionButton addFavorite;
+*/
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -46,7 +50,7 @@ public class NeighbourDetailsActivity extends AppCompatActivity {
 
         // Retrieve the neighbour object from the intent via parcel
         Intent intent = getIntent();
-        Neighbour neighbour = intent.getParcelableExtra("neighbourObject");
+        Neighbour neighbour = intent.getParcelableExtra("NEIGHBOUR_OBJECT");
 
         // Fill the different widgets
 
@@ -60,6 +64,7 @@ public class NeighbourDetailsActivity extends AppCompatActivity {
         cardCoordinatesPhone.setText(neighbour.getPhoneNumber());
         cardCoordinatesSocial.setText("www.facebook.com/" + neighbour.getName());
         cardAboutDescription.setText(neighbour.getAboutMe());
+        setIconInFab(neighbour.getFavorite(), addFavorite);
 
         // Implement action when navigation button is pressed
         topAppBar.setNavigationOnClickListener(new View.OnClickListener() {
@@ -74,10 +79,19 @@ public class NeighbourDetailsActivity extends AppCompatActivity {
         addFavorite.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                /*TODO implémenter ici l'ajout du voisin à la liste des favoris*/
-
+                neighbour.switchFavorite();
+                setIconInFab(neighbour.getFavorite(), addFavorite);
                 Log.d(TAG, "onClick: fav clicked!");
             }
         });
+    }
+
+    private void setIconInFab(Boolean isFavorite, FloatingActionButton addFavorite) {
+        // Managing fab icon function of neighbour favorite status
+        if (isFavorite) {
+            addFavorite.setImageDrawable(getResources().getDrawable(R.drawable.ic_star_add_favorite_32dp));
+        } else {
+            addFavorite.setImageDrawable(getResources().getDrawable(R.drawable.ic_star_add_favorite_no_32dp));
+        }
     }
 }
