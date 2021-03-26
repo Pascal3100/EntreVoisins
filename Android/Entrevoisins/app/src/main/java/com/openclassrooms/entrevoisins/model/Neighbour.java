@@ -31,18 +31,7 @@ public class Neighbour implements Parcelable {
     private String aboutMe;
 
     // variable indicating if the neighbour is in my favorites
-    private Boolean isFavorite;
-
-
-    // Getter and setter for Favorite boolean property
-    // ----------------------------------------------------------------
-    public Boolean getFavorite() {
-        return isFavorite;
-    }
-    public void setFavorite(Boolean favorite) {
-        isFavorite = favorite;
-    }
-    // ----------------------------------------------------------------
+    private Boolean isFavorite = false;
 
     /**
      * Constructor
@@ -71,6 +60,7 @@ public class Neighbour implements Parcelable {
         address = in.readString();
         phoneNumber = in.readString();
         aboutMe = in.readString();
+        isFavorite = in.readInt() == 1;
     }
 
     // write the informations into parcel
@@ -82,6 +72,7 @@ public class Neighbour implements Parcelable {
         dest.writeString(address);
         dest.writeString(phoneNumber);
         dest.writeString(aboutMe);
+        dest.writeInt(isFavorite ? 1 : 0);
     }
 
     @Override
@@ -151,6 +142,17 @@ public class Neighbour implements Parcelable {
     public void setAboutMe(String aboutMe) {
         this.aboutMe = aboutMe;
     }
+
+    // Getter for Favorite boolean property
+    // ----------------------------------------------------------------
+    public Boolean getFavorite() {
+        return isFavorite;
+    }
+
+    public void setFavorite(boolean isFavoriteNeighbour) {
+        isFavorite = isFavoriteNeighbour;
+    }
+    // ----------------------------------------------------------------
 
     @Override
     public boolean equals(Object o) {

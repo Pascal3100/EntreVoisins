@@ -21,10 +21,8 @@ import com.openclassrooms.entrevoisins.vue.neighbour_list.ListNeighbourActivity;
 public class NeighbourDetailsActivity extends AppCompatActivity {
 
     private static final String TAG = "NeighbourDetails";
-/*
     private Neighbour neighbour;
     private FloatingActionButton addFavorite;
-*/
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -46,14 +44,15 @@ public class NeighbourDetailsActivity extends AppCompatActivity {
         TextView cardCoordinatesPhone = findViewById(R.id.card_coordinates_phone_neighbour_details_activity);
         TextView cardCoordinatesSocial = findViewById(R.id.card_coordinates_social_neighbour_details_activity);
         TextView cardAboutDescription = findViewById(R.id.card_about_description_neighbour_details_activity);
-        FloatingActionButton addFavorite = findViewById(R.id.add_favorite_fab_neighbour_details_activity);
+        addFavorite = findViewById(R.id.add_favorite_fab_neighbour_details_activity);
 
         // Retrieve the neighbour object from the intent via parcel
         Intent intent = getIntent();
-        Neighbour neighbour = intent.getParcelableExtra("NEIGHBOUR_OBJECT");
+        neighbour = intent.getParcelableExtra("NEIGHBOUR_OBJECT");
 
         // Fill the different widgets
 
+        // Use of Glide
         Glide.with(NeighbourDetailsActivity.this)
              .load(neighbour.getAvatarUrl())
              .into(appbarBackgroundImage);
@@ -64,12 +63,18 @@ public class NeighbourDetailsActivity extends AppCompatActivity {
         cardCoordinatesPhone.setText(neighbour.getPhoneNumber());
         cardCoordinatesSocial.setText("www.facebook.com/" + neighbour.getName());
         cardAboutDescription.setText(neighbour.getAboutMe());
-        setIconInFab(neighbour.getFavorite(), addFavorite);
+        setIconInFab();
 
         // Implement action when navigation button is pressed
         topAppBar.setNavigationOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                // We send the data back to main Activity (favorite status)
+                Intent intent = getIntent();
+                intent.putExtra("isFavoriteNeighbour", neighbour.getFavorite());
+                setResult(RESULT_OK, intent);
+
+                // Close the activity
                 finish();
             }
         });
@@ -80,15 +85,15 @@ public class NeighbourDetailsActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 neighbour.switchFavorite();
-                setIconInFab(neighbour.getFavorite(), addFavorite);
+                setIconInFab();
                 Log.d(TAG, "onClick: fav clicked!");
             }
         });
     }
 
-    private void setIconInFab(Boolean isFavorite, FloatingActionButton addFavorite) {
+    private void setIconInFab() {
         // Managing fab icon function of neighbour favorite status
-        if (isFavorite) {
+        if (neighbour.getFavorite()) {
             addFavorite.setImageDrawable(getResources().getDrawable(R.drawable.ic_star_add_favorite_32dp));
         } else {
             addFavorite.setImageDrawable(getResources().getDrawable(R.drawable.ic_star_add_favorite_no_32dp));

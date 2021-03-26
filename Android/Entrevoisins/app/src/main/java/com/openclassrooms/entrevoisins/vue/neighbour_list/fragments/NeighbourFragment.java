@@ -23,6 +23,7 @@ import com.openclassrooms.entrevoisins.vue.neighbour_list.adapters.MyNeighbourRe
 import org.greenrobot.eventbus.EventBus;
 import org.greenrobot.eventbus.Subscribe;
 
+import java.util.ArrayList;
 import java.util.List;
 
 
@@ -110,7 +111,7 @@ public class NeighbourFragment extends Fragment {
         neighbourFavorite.isViewFavorite(isFavorite);
 
         if (isFavorite && mNeighbours != null) {
-            List<Neighbour> mFavoriteNeighbours = null;
+            ArrayList<Neighbour> mFavoriteNeighbours = new ArrayList<Neighbour>();
             for (Neighbour n: mNeighbours) {
                 if (n.getFavorite()) {
                     mFavoriteNeighbours.add(n);

@@ -1,9 +1,12 @@
 package com.openclassrooms.entrevoisins.vue.neighbour_list;
 
+import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
+import android.widget.Toast;
 
+import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 import androidx.viewpager.widget.ViewPager;
@@ -31,9 +34,13 @@ public class ListNeighbourActivity extends AppCompatActivity implements OnNeighb
     ViewPager mViewPager;
     private static final String TAG = "MainNeighActivity";
 
+    // Request code for databack operation
+    public static final int REQUEST_CODE = 1;
+
     ListNeighbourPagerAdapter mPagerAdapter;
 
     Boolean isFavoriteView = false;
+    Neighbour lastSelectedNeighbour;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -60,7 +67,8 @@ public class ListNeighbourActivity extends AppCompatActivity implements OnNeighb
     // -------------------------------------------------------------------------------
     @Override
     public void onNeighbourClick(Neighbour neighbour) {
-        Log.d(TAG, "onClick: got clicked!!!! neighbour name is  -->  "+neighbour.getName());
+        // Update the selected neighbour objet
+        lastSelectedNeighbour = neighbour;
 
         // Intent that link the two activities
         Intent intent = new Intent(ListNeighbourActivity.this, NeighbourDetailsActivity.class);
@@ -69,7 +77,7 @@ public class ListNeighbourActivity extends AppCompatActivity implements OnNeighb
         intent.putExtra("NEIGHBOUR_OBJECT", neighbour);
 
         // start the activity
-        startActivity(intent);
+        startActivityForResult(intent , REQUEST_CODE);
     }
     // -------------------------------------------------------------------------------
 
@@ -78,6 +86,23 @@ public class ListNeighbourActivity extends AppCompatActivity implements OnNeighb
     public void isViewFavorite(Boolean isFavorite) {
         isFavoriteView = isFavorite;
     }
+
+    // Implementation of the databack for favorite info
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        try {
+            super.onActivityResult(requestCode, resultCode, data);
+
+            if (requestCode == REQUEST_CODE  && resultCode  == RESULT_OK) {
+                lastSelectedNeighbour.setFavorite(data.getBooleanExtra("isFavoriteNeighbour", false));
+            }
+        } catch (Exception ex) {
+            Toast.makeText(ListNeighbourActivity.this, ex.toString(),
+                    Toast.LENGTH_SHORT).show();
+        }
+
+    }
+
 
 
 }
