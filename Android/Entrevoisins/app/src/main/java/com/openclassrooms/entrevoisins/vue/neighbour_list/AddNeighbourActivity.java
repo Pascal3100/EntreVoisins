@@ -1,5 +1,6 @@
 package com.openclassrooms.entrevoisins.vue.neighbour_list;
 
+import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.text.Editable;
@@ -39,6 +40,7 @@ public class AddNeighbourActivity extends AppCompatActivity {
 
     private NeighbourApiService mApiService;
     private String mNeighbourImage;
+    private static final String IS_FAVORITE_VIEW = "IS_FAVORITE_VIEW";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -82,7 +84,7 @@ public class AddNeighbourActivity extends AppCompatActivity {
     void addNeighbour() {
         // Retrieve the boolean info of the view
         Intent intent = getIntent();
-        Boolean isFavoriteView = intent.getBooleanExtra("IS_FAVORITE", false);
+        Boolean isFavoriteView = intent.getBooleanExtra(IS_FAVORITE_VIEW, false);
 
         Neighbour neighbour = new Neighbour(
                 System.currentTimeMillis(),
@@ -107,12 +109,13 @@ public class AddNeighbourActivity extends AppCompatActivity {
 
     /**
      * Used to navigate to this activity
-     * @param activity
+     * @param context
      */
-/*
-    public static void navigate(FragmentActivity activity) {
-        Intent intent = new Intent(activity, AddNeighbourActivity.class);
-        ActivityCompat.startActivity(activity, intent, null);
+    public static Intent navigate(Context context, Boolean isFavoriteView) {
+        Intent intent = new Intent(context, AddNeighbourActivity.class);
+        intent.putExtra(IS_FAVORITE_VIEW, isFavoriteView);
+
+        return intent;
+
     }
-*/
 }

@@ -1,19 +1,15 @@
 package com.openclassrooms.entrevoisins.vue.neighbour_list;
 
-import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
-import android.util.Log;
 import android.widget.Toast;
 
-import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 import androidx.viewpager.widget.ViewPager;
 
 import com.google.android.material.tabs.TabLayout;
 import com.openclassrooms.entrevoisins.R;
-import com.openclassrooms.entrevoisins.controler.interfaces.NeighbourFavoriteInterface;
 import com.openclassrooms.entrevoisins.controler.interfaces.OnNeighbourListenerInterface;
 import com.openclassrooms.entrevoisins.model.Neighbour;
 import com.openclassrooms.entrevoisins.vue.neighbour_details.NeighbourDetailsActivity;
@@ -23,7 +19,7 @@ import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
 
-public class ListNeighbourActivity extends AppCompatActivity implements OnNeighbourListenerInterface, NeighbourFavoriteInterface {
+public class ListNeighbourActivity extends AppCompatActivity implements OnNeighbourListenerInterface {
 
     // UI Components
     @BindView(R.id.tabs)
@@ -32,7 +28,7 @@ public class ListNeighbourActivity extends AppCompatActivity implements OnNeighb
     Toolbar mToolbar;
     @BindView(R.id.container)
     ViewPager mViewPager;
-    private static final String TAG = "MainNeighActivity";
+    private static final String TAG = "ListNeighActivity";
 
     // Request code for databack operation
     public static final int REQUEST_CODE = 1;
@@ -57,9 +53,8 @@ public class ListNeighbourActivity extends AppCompatActivity implements OnNeighb
 
     @OnClick(R.id.add_neighbour)
     void addNeighbour() {
-        // AddNeighbourActivity.navigate(this);
-        Intent intent = new Intent(this, AddNeighbourActivity.class);
-        intent.putExtra("IS_FAVORITE", isFavoriteView);
+        Boolean isFavoriteView = mTabLayout.getSelectedTabPosition() == 1;
+        Intent intent = AddNeighbourActivity.navigate(this, isFavoriteView);
         startActivity(intent);
     }
 
@@ -78,13 +73,6 @@ public class ListNeighbourActivity extends AppCompatActivity implements OnNeighb
 
         // start the activity
         startActivityForResult(intent , REQUEST_CODE);
-    }
-    // -------------------------------------------------------------------------------
-
-    // Implementation of the interface to return the type of Fragment
-    @Override
-    public void isViewFavorite(Boolean isFavorite) {
-        isFavoriteView = isFavorite;
     }
 
     // Implementation of the databack for favorite info

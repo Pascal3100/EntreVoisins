@@ -4,6 +4,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.text.method.ScrollingMovementMethod;
 import android.util.Log;
 import android.view.View;
 import android.view.Window;
@@ -44,6 +45,7 @@ public class NeighbourDetailsActivity extends AppCompatActivity {
         TextView cardCoordinatesPhone = findViewById(R.id.card_coordinates_phone_neighbour_details_activity);
         TextView cardCoordinatesSocial = findViewById(R.id.card_coordinates_social_neighbour_details_activity);
         TextView cardAboutDescription = findViewById(R.id.card_about_description_neighbour_details_activity);
+        cardAboutDescription.setMovementMethod(new ScrollingMovementMethod());
         addFavorite = findViewById(R.id.add_favorite_fab_neighbour_details_activity);
 
         // Retrieve the neighbour object from the intent via parcel

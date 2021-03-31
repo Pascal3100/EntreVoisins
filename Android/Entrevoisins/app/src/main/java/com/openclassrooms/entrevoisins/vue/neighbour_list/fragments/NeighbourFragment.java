@@ -14,7 +14,6 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.openclassrooms.entrevoisins.R;
 import com.openclassrooms.entrevoisins.controler.di.DI;
 import com.openclassrooms.entrevoisins.controler.events.DeleteNeighbourEvent;
-import com.openclassrooms.entrevoisins.controler.interfaces.NeighbourFavoriteInterface;
 import com.openclassrooms.entrevoisins.controler.interfaces.OnNeighbourListenerInterface;
 import com.openclassrooms.entrevoisins.model.Neighbour;
 import com.openclassrooms.entrevoisins.controler.interfaces.NeighbourApiService;
@@ -35,9 +34,6 @@ public class NeighbourFragment extends Fragment {
 
     // We add here a variable for the listener of the neighbour click
     private OnNeighbourListenerInterface onNeighbourListener;
-
-    // We add here a variable for the listener of the fragment type
-    private NeighbourFavoriteInterface neighbourFavorite;
 
     // We add here the tag for the boolean that tells us which fragment is (neighbours list or neighbours favorites
     private static final String IS_FAVORITE_BOOL = "IS_FAVORITE_FRAGMENT";
@@ -71,12 +67,6 @@ public class NeighbourFragment extends Fragment {
             throw new ClassCastException(context.toString()
                     + " must implement OnNeighbourListener");
         }
-        if (context instanceof NeighbourFavoriteInterface) {
-            neighbourFavorite = (NeighbourFavoriteInterface) context;
-        } else {
-            throw new ClassCastException(context.toString()
-                    + " must implement NeighbourFavoriteInterface");
-        }
     }
 
     // Actions when fragment is attached to activity
@@ -95,6 +85,7 @@ public class NeighbourFragment extends Fragment {
         mRecyclerView = (RecyclerView) view;
         mRecyclerView.setLayoutManager(new LinearLayoutManager(context));
         mRecyclerView.addItemDecoration(new DividerItemDecoration(getContext(), DividerItemDecoration.VERTICAL));
+
         return view;
     }
 
@@ -108,7 +99,6 @@ public class NeighbourFragment extends Fragment {
         // --------------------------------------------------------------------
         Bundle bundle = getArguments();
         isFavorite = bundle.getBoolean(IS_FAVORITE_BOOL);
-        neighbourFavorite.isViewFavorite(isFavorite);
 
         if (isFavorite && mNeighbours != null) {
             ArrayList<Neighbour> mFavoriteNeighbours = new ArrayList<Neighbour>();

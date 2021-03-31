@@ -7,5 +7,6 @@
     <dimen name="text_margin">16dp</dimen>
     <!--Added dims for neighbour details activity-->
     <dimen name="appbar_nd_activity_height">250dp</dimen>
+    <dimen name="about_section_height">100dp</dimen>
     <dimen name="big_title_specific_font_size">40sp</dimen>
 </resources>

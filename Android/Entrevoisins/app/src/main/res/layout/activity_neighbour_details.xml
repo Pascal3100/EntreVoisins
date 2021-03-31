@@ -56,8 +56,8 @@
         app:layout_anchor="@id/appbar_neighbour_details_activity"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_gravity="bottom"
-        app:layout_anchorGravity="bottom">
+        app:layout_behavior="@string/appbar_scrolling_view_behavior"
+        >
 
         <com.google.android.material.card.MaterialCardView
             android:id="@+id/card_coordinates_neighbour_details_activity"
@@ -201,7 +201,7 @@
                     <com.google.android.material.textview.MaterialTextView
                         android:id="@+id/card_about_description_neighbour_details_activity"
                         android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
+                        android:layout_height="@dimen/about_section_height"
                         android:paddingVertical="16dp"
                         android:text="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce a magna pretium, tempor risus sit amet, convallis odio. In vitae dapibus lacus, vitae luctus mi. Praesent ut ligula eget nibh bibendum consequat quis sit amet velit."
                         android:textColor="@color/colorCardText"
