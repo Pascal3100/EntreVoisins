@@ -28,6 +28,7 @@ public class NeighbourServiceTest {
         service = DI.getNewInstanceApiService();
     }
 
+    // Test that the getNeighbours method extract the expected list of Neighbours
     @Test
     public void getNeighboursWithSuccess() {
         List<Neighbour> neighbours = service.getNeighbours();
@@ -35,6 +36,7 @@ public class NeighbourServiceTest {
         assertThat(neighbours, IsIterableContainingInAnyOrder.containsInAnyOrder(expectedNeighbours.toArray()));
     }
 
+    // Test that the deleteNeighbours method delete the expected list of Neighbours
     @Test
     public void deleteNeighbourWithSuccess() {
         Neighbour neighbourToDelete = service.getNeighbours().get(0);
