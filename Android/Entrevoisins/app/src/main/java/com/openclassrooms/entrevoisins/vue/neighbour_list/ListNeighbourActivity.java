@@ -62,7 +62,7 @@ public class ListNeighbourActivity extends AppCompatActivity implements OnNeighb
     // -------------------------------------------------------------------------------
     @Override
     public void onNeighbourClick(Neighbour neighbour) {
-        // Update the selected neighbour objet
+        // Update the selected neighbour object
         lastSelectedNeighbour = neighbour;
 
         // Intent that link the two activities
