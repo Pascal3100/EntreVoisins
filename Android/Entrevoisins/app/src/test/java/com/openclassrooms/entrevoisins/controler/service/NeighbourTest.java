@@ -52,8 +52,8 @@ public class NeighbourTest {
     // Test that switch method returns inverse state of previous of favorite boolean
     @Test
     public void neighbourSwitchesFavoriteState() {
-        Boolean initialIsFavoriteState = neighbour.getFavorite();
+        // Assuming that initial favorite state is false
         neighbour.switchFavorite();
-        assertFalse(initialIsFavoriteState == neighbour.getFavorite());
+        assertTrue(neighbour.getFavorite());
     }
 }

@@ -9,20 +9,16 @@ import androidx.test.internal.runner.junit4.AndroidJUnit4ClassRunner;
 import com.openclassrooms.entrevoisins.R;
 import com.openclassrooms.entrevoisins.controler.service.DummyNeighbourGenerator;
 import com.openclassrooms.entrevoisins.model.Neighbour;
-import com.openclassrooms.entrevoisins.vue.neighbour_details.NeighbourDetailsActivity;
 import com.openclassrooms.entrevoisins.vue.neighbour_list.ListNeighbourActivity;
 import com.openclassrooms.entrevoisins.utils.DeleteViewAction;
 
-import org.junit.After;
 import org.junit.Before;
 import org.junit.Rule;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 
-import java.util.ArrayList;
 import java.util.List;
 
-import static androidx.test.espresso.Espresso.onData;
 import static org.hamcrest.Matchers.*;
 import static androidx.test.espresso.Espresso.onView;
 import static androidx.test.espresso.action.ViewActions.*;
@@ -39,11 +35,18 @@ import static org.hamcrest.core.IsNull.notNullValue;
 public class NeighboursListTest {
 
     // This is fixed
-    private static int ITEMS_COUNT = 12;
+    private static List<Neighbour> neighbours = DummyNeighbourGenerator.DUMMY_NEIGHBOURS;
+    private static int ITEMS_COUNT = neighbours.size();
     private static int SELECTED_NEIGHBOUR_POSITION = 2;
-    Neighbour neighbour = DummyNeighbourGenerator.DUMMY_NEIGHBOURS.get(SELECTED_NEIGHBOUR_POSITION);
+    private static Neighbour neighbour = neighbours.get(SELECTED_NEIGHBOUR_POSITION);
 
     private ActivityScenario mActivity;
+
+    // Convenience helper
+    public static RecyclerViewMatcher withRecyclerView(final int recyclerViewId) {
+        return new RecyclerViewMatcher(recyclerViewId);
+    }
+
 
     @Rule
     public ActivityScenarioRule mActivityRule = new ActivityScenarioRule(ListNeighbourActivity.class);
@@ -52,14 +55,6 @@ public class NeighboursListTest {
     public void setUp() {
         mActivity = mActivityRule.getScenario();
         assertThat(mActivity, notNullValue());
-    }
-
-    @After
-    public void tearDown() throws Exception {
-        if (mActivity != null) {
-            mActivity.close();
-        }
-        mActivity = null;
     }
 
     /**
@@ -110,6 +105,7 @@ public class NeighboursListTest {
                 .check(matches(isDisplayed()));
     }
 
+    // Test that if the big title is filled with the right name
     @Test
     public void testMyNeighboursList_checkDetailsBigTitle() {
         // First scroll to the position that needs to be matched and click on it.
@@ -123,20 +119,21 @@ public class NeighboursListTest {
                 .check(matches(withText(containsString(neighbour.getName()))));
     }
 
-
     // Test that checks only favorite neighbours are displayed in Favorite View Fragment
     @Test
     public void testMyNeighboursList_FavNeighbInFavView() {
-        // First scroll to the position that needs to be matched and click on it.
+        // Add 2 neighbours in favorite
+        neighbours.get(5).switchFavorite();
+        neighbours.get(6).switchFavorite();
+
+        // Scroll to the position that needs to be matched and click on it.
         onView(withText(R.string.tab_favorites_title))
                 .perform(click());
-        // get favorite names list
-        List<String> l = new ArrayList<>();
-        for (Neighbour n : DummyNeighbourGenerator.DUMMY_NEIGHBOURS) {
-            if (n.getFavorite()) {
-                l.add(n.getName());
-            }
-        }
-        // Compare the favorite list Names to the viewHolders textViews...??
+
+        // Verify that the two favorite neighbours are in the list
+        onView(withRecyclerView(R.id.list_neighbours).atPosition(0))
+                .check(matches(hasDescendant(withText(neighbours.get(0).getName()))));
+        onView(withRecyclerView(R.id.list_neighbours).atPosition(1))
+                .check(matches(hasDescendant(withText(neighbours.get(1).getName()))));
     }
 }
