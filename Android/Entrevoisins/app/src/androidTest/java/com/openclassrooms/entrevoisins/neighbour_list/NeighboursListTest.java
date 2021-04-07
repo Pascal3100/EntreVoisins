@@ -32,7 +32,6 @@ import static com.openclassrooms.entrevoisins.utils.RecyclerViewItemCountAsserti
 import static org.hamcrest.core.IsNull.notNullValue;
 
 
-
 /**
  * Test class for list of neighbours
  */
@@ -138,6 +137,6 @@ public class NeighboursListTest {
                 l.add(n.getName());
             }
         }
-        //
+        // Compare the favorite list Names to the viewHolders textViews...??
     }
 }
